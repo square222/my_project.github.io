@@ -4,7 +4,7 @@
     <title>Просмотр PDF</title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <style>
+    <script src="pdfobject.js"></script> <style>
         body {
             margin: 0;
         }
@@ -17,87 +17,18 @@
             align-items: center;
         }
 
-        iframe {
-            width: 95%; 
-            height: 90%; 
-            border: none;
-            border-radius: 5px;
-        }
-
-        .controls {
-            position: absolute;
-            top: 10px;
-            right: 10px;
-            display: flex;
-        }
-
-        button {
-            background-color: transparent;
-            border: none;
-            font-size: 20px;
-            margin-left: 10px;
-            color: #fff;
-            cursor: pointer;
-        }
-
-        button:hover {
-            color: #ddd;
-        }
-
-        button:disabled {
-            opacity: 0.5;
-            cursor: default;
+        #pdf-frame {
+            width: 95%;
+            height: 90%;
+            border: 1px solid #ccc;
         }
     </style>
 </head>
 <body class="pdf-viewer">
-    <iframe src="" id="pdf-frame"></iframe>
-    <div class="controls">
-        <button id="prev-button" disabled>Предыдущий</button>
-        <button id="next-button">Следующий</button>
-    </div>
+    <div id="pdf-frame"></div> 
 
     <script>
-        document.addEventListener('DOMContentLoaded', () => {
-            const pdfFrame = document.getElementById('pdf-frame');
-            const prevButton = document.getElementById('prev-button');
-            const nextButton = document.getElementById('next-button');
-            let currentFileIndex = 0;
-            let pdfFiles = [];
-
-            function loadPDF(fileIndex) {
-                currentFileIndex = fileIndex;
-                const pdfFile = pdfFiles[currentFileIndex];
-                pdfFrame.src = pdfFile;
-                updateButtonState();
-            }
-
-            function updateButtonState() {
-                prevButton.disabled = currentFileIndex === 0;
-                nextButton.disabled = currentFileIndex === pdfFiles.length - 1;
-            }
-
-            prevButton.addEventListener('click', () => {
-                loadPDF(currentFileIndex - 1);
-            });
-
-            nextButton.addEventListener('click', () => {
-                loadPDF(currentFileIndex + 1);
-            });
-
-            // Получение списка файлов из URL-параметров
-            const urlParams = new URLSearchParams(window.location.search);
-            const initialPdfFile = urlParams.get('pdf');
-
-            // Загрузка файлов из каталога
-            for (let i = 2; i <= 10; i++) {
-                pdfFiles.push(`pdf/00${i}.pdf`);
-            }
-
-            if (initialPdfFile) {
-                loadPDF(pdfFiles.indexOf(initialPdfFile));
-            }
-        });
+        PDFObject.embed("pdf/002.pdf", "#pdf-frame"); 
     </script>
 </body>
 </html>
