@@ -4,7 +4,7 @@
     <title>Просмотр PDF</title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <script src="pdfobject.js"></script> <style>
+    <script type="module" src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/4.7.76/pdf.min.js"></script> <style>
         body {
             margin: 0;
         }
@@ -17,7 +17,7 @@
             align-items: center;
         }
 
-        #pdf-frame {
+        #pdf-canvas {
             width: 95%;
             height: 90%;
             border: 1px solid #ccc;
@@ -25,10 +25,22 @@
     </style>
 </head>
 <body class="pdf-viewer">
-    <div id="pdf-frame"></div> 
+    <canvas id="pdf-canvas"></canvas>
 
     <script>
-        PDFObject.embed("pdf/002.pdf", "#pdf-frame"); 
+        document.addEventListener('DOMContentLoaded', () => {
+            const urlParams = new URLSearchParams(window.location.search);
+            const pdfFile = urlParams.get('pdf');
+
+            if (pdfFile) {
+                const canvas = document.getElementById('pdf-canvas');
+                const pdfViewer = new PDFJS.DocumentViewer({
+                    container: canvas,
+                    url: pdfFile,
+                });
+                pdfViewer.render();
+            }
+        });
     </script>
 </body>
 </html>

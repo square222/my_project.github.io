@@ -1,0 +1,96 @@
+body {
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    background-color: #f4f4f4;
+    color: #333;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-height: 100vh; /* Занимаем всю высоту экрана */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.container {
+    padding: 20px;
+    max-width: 900px;
+    width: 95%;
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    text-align: center; /* Выравниваем текст по центру */
+}
+
+h1 {
+    margin-bottom: 30px;
+    color: #333;
+    /* Добавляем новое правило для заголовка */
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #f08080; /* Цвет фона заголовка */
+    color: white; /* Цвет текста заголовка */
+    border-radius: 5px; /* Скругление углов заголовка */
+}
+
+#button-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.button {
+    background-color: #f08080; /* Цвет кнопок заменен на светло-розовый */
+    color: white;
+    padding: 15px 30px;
+    margin: 10px;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    text-decoration: none; /* Убираем подчеркивание для ссылок */
+    flex: 1; /* Добавляем flex: 1 */
+    min-width: 100px; /* Добавляем минимальную ширину */
+}
+
+.button:hover {
+    background-color: #dc7777;
+}
+
+.button:active {
+    background-color: #d16f6f;
+    transform: translateY(2px);
+}
+
+#pagination {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+.pagination-button {
+    background-color: #ddd;
+    color: #333;
+    padding: 10px 15px;
+    margin: 0 5px;
+    border: none;
+    border-radius: 5px;
+    font-size: 14px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.pagination-button:hover {
+    background-color: #bbb;
+}
+
+.pagination-button:active {
+    background-color: #aaa;
+    transform: translateY(2px);
+}
+
+.pagination-button.active {
+    background-color: #f08080; /* Цвет активной кнопки пагинации */
+    color: white;
+}
