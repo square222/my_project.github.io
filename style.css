@@ -7,10 +7,12 @@
     }
 
 body{
-    /* background-image: url(img/fon-art-tekstura-sova.jpg); */
-    /* background-size: 245%; */
     background-color: hsl(129, 31%, 52%);
+    background-image: url(img/014_page-0003.jpg);
+    opacity: 95%;
+    
 }
+
 .block{
     background-color: hsl(47, 81%, 90%);
     width: 100%;

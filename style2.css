@@ -6,7 +6,7 @@ body {
     display: flex;
     flex-direction: column;
     align-items: center;
-    min-height: 100vh; /* Занимаем всю высоту экрана */
+    min-height: 100vh; 
     display: flex;
     justify-content: center;
     align-items: center;
@@ -19,7 +19,7 @@ body {
     background-color: white;
     border-radius: 10px;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-    text-align: center; /* Выравниваем текст по центру */
+    text-align: center; 
 }
 
 h1 {
@@ -30,17 +30,18 @@ h1 {
     padding: 10px 20px;
     background-color: #f08080; /* Цвет фона заголовка */
     color: white; /* Цвет текста заголовка */
-    border-radius: 5px; /* Скругление углов заголовка */
+    border-radius: 5px; 
 }
 
 #button-container {
-    display: flex;
-    flex-wrap: wrap;
+    display: grid; 
+    grid-template-columns: repeat(auto-fit, minmax(100px, 1fr)); 
+    gap: 10px;
     justify-content: center;
 }
 
 .button {
-    background-color: #f08080; /* Цвет кнопок заменен на светло-розовый */
+    background-color: #f08080; 
     color: white;
     padding: 15px 30px;
     margin: 10px;
@@ -49,9 +50,9 @@ h1 {
     font-size: 16px;
     cursor: pointer;
     transition: background-color 0.3s;
-    text-decoration: none; /* Убираем подчеркивание для ссылок */
-    flex: 1; /* Добавляем flex: 1 */
-    min-width: 100px; /* Добавляем минимальную ширину */
+    text-decoration: none; 
+    flex: 1; 
+    min-width: 100px; 
 }
 
 .button:hover {
@@ -91,6 +92,6 @@ h1 {
 }
 
 .pagination-button.active {
-    background-color: #f08080; /* Цвет активной кнопки пагинации */
+    background-color: #f08080; 
     color: white;
 }
